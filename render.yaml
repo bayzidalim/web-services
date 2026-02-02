@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: unified-backend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run install-all
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 24h
+      - key: FRONTEND_URL
+        sync: false # User must input this
+      - key: GEMINI_API_KEY
+        sync: false # User must input this
+      - key: SUPABASE_URL
+        sync: false # User must input this
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false # User must input this
+      - key: SUPABASE_ANON_KEY
+        sync: false # User must input this
+      - key: DATABASE_URL
+        sync: false # User must input this
+      - key: CLOUDINARY_URL
+        sync: false # User must input this
