@@ -1,0 +1,58 @@
+{
+  "name": "rapidcare-backend",
+  "version": "1.0.0",
+  "description": "RapidCare Backend API - Emergency medical resource booking platform backend services",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "echo 'No build step required for Node.js'",
+    "seed": "node utils/seeder.js",
+    "seed:financial": "node utils/financialSeeder.js",
+    "seed:social": "node seed-social-posts.js",
+    "assign:credentials": "node utils/assignHospitalCredentials.js",
+    "view:credentials": "node utils/viewHospitalCredentials.js",
+    "update:pricing-5x": "node update-pricing-5x.js",
+    "migrate": "node migrations/migrate.js",
+    "migrate:status": "node migrations/migrate.js status",
+    "test": "mocha tests/**/*.test.js --timeout 10000",
+    "test:watch": "mocha tests/**/*.test.js --watch --timeout 10000",
+    "test:rapid-assistance": "mocha tests/services/rapidAssistance.test.js --timeout 10000",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "rapidcare",
+    "emergency-care",
+    "healthcare-api",
+    "medical-booking",
+    "express",
+    "sqlite",
+    "jwt-auth"
+  ],
+  "author": "RapidCare Team",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "bcryptjs": "^3.0.2",
+    "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-cron": "^4.2.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "eslint": "^9.36.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.1.10",
+    "sinon": "^17.0.1",
+    "supertest": "^6.3.3"
+  }
+}
