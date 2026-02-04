@@ -10,7 +10,14 @@ const app = express();
 // Middleware
 // Configure CORS to allow requests from frontend
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || '*',
+  origin: function (origin, callback) {
+    const frontendUrl = process.env.FRONTEND_URL;
+    if (!origin || frontendUrl === '*' || frontendUrl === origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200
 };
