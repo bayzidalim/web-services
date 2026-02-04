@@ -8,8 +8,8 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 10000; // Render default
 
-// Enable CORS for the gateway
-app.use(cors());
+// Enable CORS for the gateway - disabled to allow sub-apps to handle their own CORS (specifically headers)
+// app.use(cors());
 
 // Health check for the gateway itself
 app.get('/health', (req, res) => {
